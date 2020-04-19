@@ -1,0 +1,6 @@
+# JB
+.idea
+# CMake
+cmake-build-*/
+# nix
+.directory
