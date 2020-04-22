@@ -111,20 +111,37 @@ void maze_generator::erase_walls_inside_room(Maze &maze, Cell room_pos, int room
 
 void maze_generator::open_exit_from_room(Maze &maze, Cell room_pos, int room_size, Maze::mask m) {
     int door_x, door_y;
+    int rev_door_x, rev_door_y;
     if (m == Maze::UP) {
         door_x = room_pos.x + room_size / 2;
         door_y = room_pos.y;
+
+        rev_door_x = door_x;
+        rev_door_y = door_y - 1;
+
     } else if (m == Maze::DOWN) {
         door_x = room_pos.x + room_size / 2;
         door_y = room_pos.y + room_size - 1;
+
+        rev_door_x = door_x;
+        rev_door_y = door_y + 1;
+
     } else if (m == Maze::LEFT) {
         door_x = room_pos.x;
         door_y = room_pos.y + room_size  / 2;
+
+        rev_door_x = door_x - 1;
+        rev_door_y = door_y;
+
     } else if (m == Maze::RIGHT) {
         door_x = room_pos.x + room_size - 1;
         door_y = room_pos.y + room_size / 2;
+
+        rev_door_x = door_x + 1;
+        rev_door_y = door_y;
     }
     maze.apply_mask(Cell(door_x, door_y), m);
+    maze.apply_mask(Cell(rev_door_x, rev_door_y), invert_direction(m));
 }
 
 Maze maze_generator::next_maze() {
