@@ -3,4 +3,4 @@ project(maze_gen)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(maze_gen main.cpp maze.cpp maze.h cell.cpp cell.h)
+add_executable(maze_gen main.cpp maze.cpp maze.h cell.cpp cell.h maze_generator.cpp maze_generator.h)
