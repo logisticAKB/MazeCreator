@@ -209,7 +209,7 @@ Maze maze_generator::next_maze() {
     }
 
     // open exit from maze
-//    maze.apply_mask(Cell(maze_size / 2, 0), Maze::UP);
+    maze.apply_mask(Cell(maze_size / 2, 0), Maze::UP);
 
     return maze;
 }

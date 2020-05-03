@@ -104,7 +104,11 @@ Cell Maze::next_cell(Cell cur_cell, Maze::mask &dir) {
         else if (dir == RIGHT) x++;
 
         id = y * maze_size + x;
-    } while (id < 0 || id > maze.size() || maze[id].in_maze_mask);
+
+        if (id >= 0 && id <= maze.size() - 1) {
+            if (!maze[id].in_maze_mask) break;
+        }
+    } while (true);
 
     return maze[id];
 }
