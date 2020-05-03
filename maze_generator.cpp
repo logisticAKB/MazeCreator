@@ -1,4 +1,3 @@
-#include <iostream>
 #include "maze_generator.h"
 
 maze_generator::maze_generator(int maze_size,       int start_room_size,
