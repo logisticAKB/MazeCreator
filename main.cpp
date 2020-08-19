@@ -29,6 +29,9 @@ Mat to_image(Maze &maze, int maze_size, int cell_size=10) {
 int main() {
     maze_generator m_gen(51, 5, 7, 3, 1, Cell(24, 24));
     auto maze = m_gen.next_maze();
-    imwrite("test.png", to_image(maze, 52));
+//    imwrite("test.png", to_image(maze, 52));
+    namedWindow( "Display window", WINDOW_AUTOSIZE );
+    imshow("Display window", to_image(maze, 52));
+    waitKey(0);
     return 0;
 }
